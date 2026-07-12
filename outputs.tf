@@ -1,3 +1,7 @@
+output "application_load_balancers_id" {
+  description = "Map of id values across all application_load_balancers, keyed the same as var.application_load_balancers"
+  value       = { for k, v in azurerm_application_load_balancer.application_load_balancers : k => v.id }
+}
 output "application_load_balancers_location" {
   description = "Map of location values across all application_load_balancers, keyed the same as var.application_load_balancers"
   value       = { for k, v in azurerm_application_load_balancer.application_load_balancers : k => v.location }
